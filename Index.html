@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML & CSS Practice Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">HTML<span>.</span>CSS <span style="color:var(--muted);font-weight:400;font-size:0.9rem">/ Practice Lab</span></div>
+  <nav>
+    <a class="active" onclick="setTab(this,'editor')">Editor</a>
+    <a onclick="setTab(this,'reference')">Reference</a>
+  </nav>
+</header>
+
+<div class="lab" id="editor-view">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">HTML Basics</div>
+      <button class="lesson-btn active" onclick="loadLesson(0,this)"><span class="dot"></span> Headings & Text</button>
+      <button class="lesson-btn" onclick="loadLesson(1,this)"><span class="dot"></span> Links & Images</button>
+      <button class="lesson-btn" onclick="loadLesson(2,this)"><span class="dot"></span> Lists</button>
+      <button class="lesson-btn" onclick="loadLesson(3,this)"><span class="dot"></span> Tables</button>
+      <button class="lesson-btn" onclick="loadLesson(4,this)"><span class="dot"></span> Forms</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">CSS Fundamentals</div>
+      <button class="lesson-btn" onclick="loadLesson(5,this)"><span class="dot"></span> Colors & Fonts</button>
+      <button class="lesson-btn" onclick="loadLesson(6,this)"><span class="dot"></span> Box Model</button>
+      <button class="lesson-btn" onclick="loadLesson(7,this)"><span class="dot"></span> Flexbox</button>
+      <button class="lesson-btn" onclick="loadLesson(8,this)"><span class="dot"></span> Grid</button>
+      <button class="lesson-btn" onclick="loadLesson(9,this)"><span class="dot"></span> Animations</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Mini Projects</div>
+      <button class="lesson-btn" onclick="loadLesson(10,this)"><span class="dot"></span> Profile Card</button>
+      <button class="lesson-btn" onclick="loadLesson(11,this)"><span class="dot"></span> Navigation Bar</button>
+      <button class="lesson-btn" onclick="loadLesson(12,this)"><span class="dot"></span> Button Styles</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="challenge-bar">
+      <div class="challenge-info">
+        <h2 id="lesson-title">Headings & Paragraph Text</h2>
+        <p id="lesson-desc">HTML has 6 heading levels (h1–h6) and the &lt;p&gt; tag for paragraphs. Use &lt;strong&gt; for bold, &lt;em&gt; for italic. Edit the code and click Run to see it live!</p>
+      </div>
+      <div class="challenge-actions">
+        <button class="btn btn-ghost" onclick="toggleHint()">Hint</button>
+        <button class="btn btn-ghost" onclick="resetCode()">Reset</button>
+        <button class="btn btn-primary" onclick="runCode()">▶ Run</button>
+      </div>
+    </div>
+
+    <div class="editor-area">
+      <div class="pane">
+        <div class="pane-header">
+          <span class="lang-tag">HTML</span>
+          <span>index.html</span>
+        </div>
+        <textarea id="code-editor" spellcheck="false"></textarea>
+      </div>
+      <div class="pane">
+        <div class="pane-header">
+          <span class="lang-tag" style="background:rgba(255,209,102,0.12);color:var(--accent3)">PREVIEW</span>
+          <span>live output</span>
+        </div>
+        <iframe id="preview-frame" title="Preview"></iframe>
+      </div>
+    </div>
+
+    <div class="status-bar">
+      <span class="hint" id="status-hint">Press ▶ Run to see your changes</span>
+      <div class="progress-track" id="progress-track"></div>
+    </div>
+  </main>
+</div>
+
+<div class="notif" id="notif"></div>
+<div class="hint-panel" id="hint-panel">
+  <h4>Hint</h4>
+  <div id="hint-text"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
